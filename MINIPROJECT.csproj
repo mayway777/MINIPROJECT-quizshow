@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D9CB7F8-A89B-46AB-A0F9-8FB3F3DECCD0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MINIPROJECT</RootNamespace>
+    <AssemblyName>MINIPROJECT</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Join.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Join.Designer.cs">
+      <DependentUpon>Join.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs" />
+    <Compile Include="PlayGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayGame.Designer.cs">
+      <DependentUpon>PlayGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Join.resx">
+      <DependentUpon>Join.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayGame.resx">
+      <DependentUpon>PlayGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Connected Services\ServiceReference1\GetService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\GetService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\MemberService.wsdl" />
+    <None Include="Connected Services\ServiceReference2\GetService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\GetService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\QuizService.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2402cbb7f6bdbea22f99abcd0961e652.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\v904-nunny-010-f.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15647.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스크린샷 2024-11-18 134439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스크린샷 2024-11-18 140755.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4f8191c108e8672c86717b7507d75345.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4f8191c108e8672c86717b7507d753451.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e6853188092300401b7252585d372fc1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2287d474c7f2d3c32f87c3bdf05c95ea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스크린샷 2024-11-18 1407551.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bb19cd3c915c6f27a54f1c4caaccd5f6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4b27e758a0e3ab0ebe627be3aa226096.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a48a9751e1a78fdfeeeea089ae8a1952.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fd95c076013bc3f5ced0ec0d82de5640.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edbf5a88edda127cabc7d940e6f132ed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a7a5e3589be5662d93d4539284062c22.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\886d2eb404c75ed3e38a945f4024bbef.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d70a40cf4da0d15cc2aa864e641cf761.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a54d3f4f9f1bbc07eacc60d5cabce14a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\46d69ff66330e245258161eaf9e8e250.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dd3efc316a7f6d14b222625691a8b22a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0d6878e897d82d7625b1b86dafffcc1a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ff732ca2eccb573d51470c1fc6afe468.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\GetService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\GetService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceReference2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

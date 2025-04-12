@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="MemberService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://220.90.180.84:7000/GetService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://220.90.180.84:7000/GetService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Imember_InsertMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMember" />
+  </wsdl:message>
+  <wsdl:message name="Imember_InsertMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="Imember_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_IsIdOkay_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsIdOkay" />
+  </wsdl:message>
+  <wsdl:message name="Imember_IsIdOkay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsIdOkayResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_IsNameOkay_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsNameOkay" />
+  </wsdl:message>
+  <wsdl:message name="Imember_IsNameOkay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsNameOkayResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_GetUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="Imember_GetUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User1rd_InputMessage">
+    <wsdl:part name="parameters" element="tns:User1rd" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User1rd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:User1rdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User2rd_InputMessage">
+    <wsdl:part name="parameters" element="tns:User2rd" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User2rd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:User2rdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User3rd_InputMessage">
+    <wsdl:part name="parameters" element="tns:User3rd" />
+  </wsdl:message>
+  <wsdl:message name="Imember_User3rd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:User3rdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Imember">
+    <wsdl:operation name="InsertMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/InsertMember" message="tns:Imember_InsertMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/InsertMemberResponse" message="tns:Imember_InsertMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/Login" message="tns:Imember_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/LoginResponse" message="tns:Imember_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsIdOkay">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/IsIdOkay" message="tns:Imember_IsIdOkay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/IsIdOkayResponse" message="tns:Imember_IsIdOkay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsNameOkay">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/IsNameOkay" message="tns:Imember_IsNameOkay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/IsNameOkayResponse" message="tns:Imember_IsNameOkay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/GetUserInformation" message="tns:Imember_GetUserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/GetUserInformationResponse" message="tns:Imember_GetUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="User1rd">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/User1rd" message="tns:Imember_User1rd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/User1rdResponse" message="tns:Imember_User1rd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="User2rd">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/User2rd" message="tns:Imember_User2rd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/User2rdResponse" message="tns:Imember_User2rd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="User3rd">
+      <wsdl:input wsaw:Action="http://tempuri.org/Imember/User3rd" message="tns:Imember_User3rd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Imember/User3rdResponse" message="tns:Imember_User3rd_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Imember" type="tns:Imember">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertMember">
+      <soap:operation soapAction="http://tempuri.org/Imember/InsertMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Imember/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsIdOkay">
+      <soap:operation soapAction="http://tempuri.org/Imember/IsIdOkay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsNameOkay">
+      <soap:operation soapAction="http://tempuri.org/Imember/IsNameOkay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <soap:operation soapAction="http://tempuri.org/Imember/GetUserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User1rd">
+      <soap:operation soapAction="http://tempuri.org/Imember/User1rd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User2rd">
+      <soap:operation soapAction="http://tempuri.org/Imember/User2rd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User3rd">
+      <soap:operation soapAction="http://tempuri.org/Imember/User3rd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberService">
+    <wsdl:port name="BasicHttpBinding_Imember" binding="tns:BasicHttpBinding_Imember">
+      <soap:address location="http://220.90.180.84:7000/GetService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

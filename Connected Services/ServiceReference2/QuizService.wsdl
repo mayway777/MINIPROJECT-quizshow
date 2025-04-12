@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="QuizService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IQuizService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://220.90.180.112:9000/GetService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://220.90.180.112:9000/GetService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IQuizService_JoinGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGame" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_JoinGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_Say_InputMessage">
+    <wsdl:part name="parameters" element="tns:Say" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_GameStart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GameStart" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_GetQuiz_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuiz" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_IsAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_DisplayPlayerInfo_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DisplayPlayerInfo" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_Say_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Say_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_Start_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Start_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_GetQuiz_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetQuiz_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_Quiz_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Quiz_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_IsAnswer_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:IsAnswer_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_Score_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:Score_Ack" />
+  </wsdl:message>
+  <wsdl:message name="IQuizService_QuizImage_Ack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:QuizImage_Ack" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IQuizService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="JoinGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuizService/JoinGame" message="tns:IQuizService_JoinGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/JoinGameResponse" message="tns:IQuizService_JoinGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="Say">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuizService/Say" message="tns:IQuizService_Say_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="GameStart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuizService/GameStart" message="tns:IQuizService_GameStart_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="GetQuiz">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuizService/GetQuiz" message="tns:IQuizService_GetQuiz_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="false" msc:isTerminating="false" name="IsAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IQuizService/IsAnswer" message="tns:IQuizService_IsAnswer_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="DisplayPlayerInfo">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/DisplayPlayerInfo" message="tns:IQuizService_DisplayPlayerInfo_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Say_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/Say_Ack" message="tns:IQuizService_Say_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Start_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/Start_Ack" message="tns:IQuizService_Start_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetQuiz_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/GetQuiz_Ack" message="tns:IQuizService_GetQuiz_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Quiz_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/Quiz_Ack" message="tns:IQuizService_Quiz_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="IsAnswer_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/IsAnswer_Ack" message="tns:IQuizService_IsAnswer_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Score_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/Score_Ack" message="tns:IQuizService_Score_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="QuizImage_Ack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IQuizService/QuizImage_Ack" message="tns:IQuizService_QuizImage_Ack_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IQuizService" type="tns:IQuizService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IQuizService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="JoinGame">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/JoinGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Say">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/Say" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GameStart">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/GameStart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuiz">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/GetQuiz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="IsAnswer">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/IsAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DisplayPlayerInfo">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/DisplayPlayerInfo" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Say_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/Say_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Start_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/Start_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuiz_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/GetQuiz_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Quiz_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/Quiz_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAnswer_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/IsAnswer_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Score_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/Score_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuizImage_Ack">
+      <soap12:operation soapAction="http://tempuri.org/IQuizService/QuizImage_Ack" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuizService">
+    <wsdl:port name="NetTcpBinding_IQuizService" binding="tns:NetTcpBinding_IQuizService">
+      <soap12:address location="net.tcp://220.90.180.112:8000/Gaming" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://220.90.180.112:8000/Gaming</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
